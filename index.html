@@ -11,7 +11,7 @@
     <div class="header">
         <header class="header-container">
             <h1>Todo List</h1>
-            <div class="plus"></div>
+            <div class="plus" id="add-task-btn"></div>
         </header>
     </div>
 
@@ -36,7 +36,7 @@
         <ul class="task-container">
             <li>Placeholder task</li>
         </ul>
-        <div class="plus-container">
+        <div class="plus-container" id="add-task-btn">
             <div class="plus"></div>
             <h3>Add Task</h3>
         </div>
@@ -46,6 +46,13 @@
         <h4>Created by Christian Yip</h4>
         <img src="images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" alt="">
     </footer>
+
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Add a task</p>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>

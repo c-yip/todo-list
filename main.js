@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo-item */ \"./src/todo-item.js\");\nconsole.log('Testing index.js');\r\n\r\n(0,_todo_item__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)();\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo-item */ \"./src/todo-item.js\");\nconsole.log('Testing index.js');\r\n\r\n(0,_todo_item__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)();\r\n\r\nconst modal = document.getElementById(\"task-modal\");\r\nconst taskBtn = document.querySelectorAll(\"#add-task-btn\");\r\nconst span = document.getElementsByClassName(\"close\")[0];\r\n\r\ntaskBtn.forEach(btn => {\r\n    btn.onclick = function() {\r\n        modal.style.display = \"block\";\r\n      }\r\n})\r\n\r\nspan.onclick = function() {\r\n  modal.style.display = \"none\";\r\n}\r\n\r\nwindow.onclick = function(event) {\r\n  if (event.target == modal) {\r\n    modal.style.display = \"none\";\r\n  }\r\n}\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ }),
 
