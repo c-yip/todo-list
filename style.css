@@ -66,3 +66,38 @@ body {
         calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
         calc(50%  + var(--b))   calc(50%  + var(--b));
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-areas: 
+            "header"
+            "main"
+            "footer"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(auto, 3);
+    }
+
+    .header {
+        background-color: #fbbf24;
+        grid-area: header;
+    }
+    
+    .side-bar {
+        background-color: #fde047;
+        grid-area: side;
+    }    
+    
+    .main-content {
+        background-color: #fef08a;
+        grid-area: main;
+    }
+    
+    .footer {
+        background-color: black;
+        color: white;
+        grid-area: footer;
+    }
+}
