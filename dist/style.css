@@ -37,20 +37,20 @@
     --b: 4px; /* the thickness */
     width: 40px; /* the size */
     aspect-ratio: 1;
-    border: 10px solid #fefce8; /* the outer space */
+    border: 10px solid white; /* the outer space */
     background:
-        conic-gradient(from 90deg at var(--b) var(--b),#fefce8 90deg,#facc15 0) 
+        conic-gradient(from 90deg at var(--b) var(--b),white 90deg,black 0) 
         calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
         calc(50%  + var(--b))   calc(50%  + var(--b));
     display: inline-block;
     border-radius: 50%;
-    
+    cursor: pointer;
 }
 
 .plus:hover {
-    border: 10px solid #fefce8;
+    border: 10px solid black;
     background:
-        conic-gradient(from 90deg at var(--b) var(--b),#fefce8 90deg,#facc15 0) 
+        conic-gradient(from 90deg at var(--b) var(--b),black 90deg,white 0) 
         calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
         calc(50%  + var(--b))   calc(50%  + var(--b));
 }
