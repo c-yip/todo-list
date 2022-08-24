@@ -26,6 +26,10 @@ body {
 .side-bar {
     background-color: #fde047;
     grid-area: side;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 91px;
 }
 
 .main-content {
@@ -65,6 +69,24 @@ body {
         conic-gradient(from 90deg at var(--b) var(--b),black 90deg,white 0) 
         calc(100% + var(--b)/2) calc(100% + var(--b)/2)/
         calc(50%  + var(--b))   calc(50%  + var(--b));
+}
+
+.side-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.plus-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 @media only screen and (max-width: 600px) {
