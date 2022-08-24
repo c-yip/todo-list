@@ -35,6 +35,10 @@ body {
 .main-content {
     background-color: #fef08a;
     grid-area: main;
+    padding: 43px;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
 }
 
 .footer {
