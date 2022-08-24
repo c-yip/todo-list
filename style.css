@@ -6,31 +6,43 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
-.content {
+body {
+    min-height: 100vh;
     display: grid;
+    grid-template-areas: 
+        "header header header"
+        "side main main"
+        "footer footer footer"
+    ;
+    grid-template-columns: auto 80%;
+    grid-template-rows: 8% auto 8%;
 }
 
 .header {
     background-color: #fbbf24;
+    grid-area: header;
 }
 
 .side-bar {
     background-color: #fde047;
+    grid-area: side;
 }
 
 .main-content {
     background-color: #fef08a;
+    grid-area: main;
 }
 
 .footer {
     background-color: black;
     color: white;
+    grid-area: footer;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
-    padding: 25px 50px;
+    padding: 17px 50px;
 }
 
 .plus {
