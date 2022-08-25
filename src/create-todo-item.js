@@ -1,5 +1,4 @@
-const submitBtn = document.querySelector('.submit');
-const todoArray = [];
+export const todoArray = [];
 
 export class TodoItem {
     constructor(title, priority, description, date) {
@@ -16,7 +15,7 @@ export class TodoItem {
     }
 }
 
-function createTodoItem() {
+export function createTodoItem() {
     let title = document.querySelector('#task-title').value;
     console.log(title);
     let priority = document.querySelector('input[name="priority"]:checked').value;
@@ -32,13 +31,6 @@ function createTodoItem() {
     console.log(todoArray);
 }
 
-//submit btn
-export function submit() {
-    submitBtn.onclick = function(event) {
-        event.preventDefault();
-        createTodoItem();
-    } 
-}
 
 
 // createTodoItem () {

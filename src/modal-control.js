@@ -1,9 +1,11 @@
-import {submit} from "./create-todo-item"
+import {createTodoItem} from "./create-todo-item";
+
 
 export function modalControl() {
     const modal = document.getElementById('task-modal');
     const taskBtn = document.querySelectorAll('#add-task-btn');
     const closeBtn = document.getElementsByClassName('close')[0];
+    const submitBtn = document.querySelector('.submit');
 
     taskBtn.forEach(btn => {
         btn.onclick = function() {
@@ -21,5 +23,7 @@ export function modalControl() {
         }
     }
 
-    submit();
+    submitBtn.onclick = function(event) {
+        createTodoItem();
+    } 
 }
