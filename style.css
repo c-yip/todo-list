@@ -111,13 +111,53 @@ body {
     background-color: rgba(0,0,0,0.4); 
 }
 
-.modal-content {
+.form-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #888;
     width: 80%;
     border-radius: 8px;
+    display: grid;
+    grid-template-areas: 
+    "task-title task-title priority"
+    "description due-date form-buttons"
+    ;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+}
+
+.task-title {
+    grid-area: task-title;
+    display: flex;
+    flex-direction: column;
+}
+
+.description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+}
+
+.due-date {
+    grid-area: due-date;
+    display: flex;
+    flex-direction: column;
+}
+
+.priority {
+    grid-area: priority;
+    gap: 10px;
+}
+
+.form-buttons {
+    grid-area: form-buttons;
+    justify-self: end;
+    align-self: end;
+}
+
+input[type="text"], input[type="date"], textarea {
+    font-size:18px;
 }
   
 .close, .submit {
