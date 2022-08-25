@@ -4,7 +4,7 @@ createTodoItem();
 
 const modal = document.getElementById("task-modal");
 const taskBtn = document.querySelectorAll("#add-task-btn");
-const span = document.getElementsByClassName("close")[0];
+const closeBtn = document.getElementsByClassName("close")[0];
 
 taskBtn.forEach(btn => {
     btn.onclick = function() {
@@ -12,7 +12,7 @@ taskBtn.forEach(btn => {
       }
 })
 
-span.onclick = function() {
+closeBtn.onclick = function() {
   modal.style.display = "none";
 }
 
