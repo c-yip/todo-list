@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _todo_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo-item */ \"./src/todo-item.js\");\n/* harmony import */ var _modal_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal-control */ \"./src/modal-control.js\");\nconsole.log('Testing index.js');\r\n\r\n\r\n(0,_todo_item__WEBPACK_IMPORTED_MODULE_0__.createTodoItem)();\r\n(0,_modal_control__WEBPACK_IMPORTED_MODULE_1__.modalControl)();\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modal_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal-control */ \"./src/modal-control.js\");\nconsole.log('Testing index.js');\r\n// import { createTodoItem } from \"./todo-item\";\r\n\r\n// createTodoItem();\r\n(0,_modal_control__WEBPACK_IMPORTED_MODULE_0__.modalControl)();\r\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ }),
 
@@ -27,16 +27,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modalControl\": () => (/* binding */ modalControl)\n/* harmony export */ });\nfunction modalControl() {\r\n    const modal = document.getElementById(\"task-modal\");\r\n    const taskBtn = document.querySelectorAll(\"#add-task-btn\");\r\n    const closeBtn = document.getElementsByClassName(\"close\")[0];\r\n\r\n    taskBtn.forEach(btn => {\r\n        btn.onclick = function() {\r\n            modal.style.display = \"block\";\r\n        }\r\n    })\r\n\r\n    closeBtn.onclick = function() {\r\n    modal.style.display = \"none\";\r\n    }\r\n\r\n    window.onclick = function(event) {\r\n    if (event.target == modal) {\r\n        modal.style.display = \"none\";\r\n    }\r\n    }\r\n}\n\n//# sourceURL=webpack://todo-list/./src/modal-control.js?");
-
-/***/ }),
-
-/***/ "./src/todo-item.js":
-/*!**************************!*\
-  !*** ./src/todo-item.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createTodoItem\": () => (/* binding */ createTodoItem)\n/* harmony export */ });\nfunction createTodoItem() {\r\n    const taskContainer = document.querySelector('.task-container');\r\n    const newTask = document.createElement('li');\r\n    taskContainer.appendChild(newTask);\r\n}\n\n//# sourceURL=webpack://todo-list/./src/todo-item.js?");
 
 /***/ })
 
