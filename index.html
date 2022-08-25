@@ -47,12 +47,13 @@
         <img src="images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" alt="">
     </footer>
 
-    <div id="task-modal" class="modal">
+    <form action="" id="task-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Add a task</p>
+            <input type="text" id="task-title" name="task-title" placeholder="Add a task">
+            <button class="close">Cancel</button>
+            <input type="submit" class="submit" value="Add Task">
         </div>
-    </div>
+    </form>
 
     <script src="main.js"></script>
 </body>
