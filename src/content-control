@@ -58,6 +58,13 @@ function createPriorityInput(priority) {
     return input;
 }
 
+export function displayNewItem() {
+    let itemContainer = document.querySelectorAll('.itemContainer');
+    itemContainer.forEach(itemContainer => {
+      itemContainer.remove();
+    })
+}
+
 {/* <div class="task-item-title">Placeholder title</div>
     <div class="task-item-description">Placeholder description</div>
     <input type="date" value="2021-08-25" class="task-item-date">

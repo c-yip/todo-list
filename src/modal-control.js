@@ -1,5 +1,6 @@
 import {createTodoItem} from "./create-todo-item";
 import { addTodoArrayToContent } from "./content-control";
+import { displayNewItem } from "./content-control";
 
 export function modalControl() {
     const modal = document.getElementById('task-modal');
@@ -24,6 +25,7 @@ export function modalControl() {
     }
 
     submitBtn.onclick = function() {
+        displayNewItem();
         createTodoItem();
         addTodoArrayToContent();
     } 
