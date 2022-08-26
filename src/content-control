@@ -1,0 +1,66 @@
+import { todoArray } from "./create-todo-item";
+
+export function addTodoArrayToContent() {
+    todoArray.forEach(item => {
+        const taskContainer = document.querySelector('.task-container');
+        
+        const itemTitle = document.createElement('div');
+        itemTitle.classList.add('task-item-title');
+        itemTitle.textContent = item.title;
+        taskContainer.appendChild(itemTitle);
+
+        const description = document.createElement('div');
+        description.classList.add('task-item-description');
+        description.textContent = item.description;
+        taskContainer.appendChild(description);
+
+        const dateInput = document.createElement('input');
+        dateInput.classList.add('task-item-date');
+        dateInput.value = item.date;
+        dateInput.setAttribute('type', 'date');
+        taskContainer.appendChild(dateInput);
+
+        taskContainer.appendChild(createPriorityLabel('high', 'High'));
+        taskContainer.appendChild(createPriorityInput('high'));
+
+        taskContainer.appendChild(createPriorityLabel('medium', 'Medium'));
+        taskContainer.appendChild(createPriorityInput('medium'));
+
+        taskContainer.appendChild(createPriorityLabel('low', 'Low'));
+        taskContainer.appendChild(createPriorityInput('low'));
+
+        let priority = document.querySelectorAll('input[name="priority-dom"]');
+        priority.forEach(p => {
+            if (p.value == item.priority) {
+                p.checked = true;
+            }
+        })
+    })
+}
+
+function createPriorityLabel(priority, text) {
+    const label = document.createElement('label');
+    label.setAttribute('for', priority);
+    label.textContent = text;
+    return label;
+}
+
+function createPriorityInput(priority) {
+    const input = document.createElement('input');
+    input.setAttribute('id', priority);
+    input.setAttribute('type', 'radio');
+    input.setAttribute('name', 'priority-dom');
+    input.setAttribute('value', priority);
+    return input;
+}
+
+{/* <div class="task-item-title">Placeholder title</div>
+    <div class="task-item-description">Placeholder description</div>
+    <input type="date" value="2021-08-25" class="task-item-date">
+    <p>Priority: </p>
+        <label for="high">High</label>
+        <input type="radio" id="high" name="priority" value="high">
+        <label for="medium">Medium</label>
+        <input type="radio" id="medium" name="priority" value="medium">
+        <label for="low">Low</label>
+        <input type="radio" id="low" name="priority" value="low"></input> */}
