@@ -1,5 +1,5 @@
 console.log('Testing index.js');
 import { modalControl } from "./modal-control";
-import { removeItem } from "./content-control";
+import { itemControl } from "./content-control";
 modalControl();
-removeItem();
+itemControl();

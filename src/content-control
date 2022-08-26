@@ -7,7 +7,13 @@ export function addTodoArrayToContent() {
         
         const itemContainer = document.createElement('div');
         itemContainer.classList.add('itemContainer');
+        itemContainer.setAttribute('id', `container-${item.idNum}`);
         taskContainer.appendChild(itemContainer);
+
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute('type', 'checkbox');
+        checkbox.classList.add('checkbox');
+        itemContainer.appendChild(checkbox);
 
         const itemTitle = document.createElement('div');
         itemTitle.classList.add('task-item-title');
@@ -77,19 +83,31 @@ export function displayNewItem() {
 }
 
 // removes item from content
-export function removeItem() {
+export function itemControl() {
+    // remove item
     document.addEventListener('click', e => {
-    if (e.target.classList.contains('trash')) {
-        let selected = e.target.dataset.id;
-        console.log(selected);
-        const indexOfObject = todoArray.findIndex(object => {
-        return object.idNum == `${selected}`;
-        });
-        console.log(indexOfObject);
-        todoArray.splice(indexOfObject, 1);
-        console.log(todoArray);
-        displayNewItem();
-        addTodoArrayToContent();
-    }
-  })
+        if (e.target.classList.contains('trash')) {
+            let selected = e.target.dataset.id;
+            console.log(selected);
+            const indexOfObject = todoArray.findIndex(object => {
+            return object.idNum == `${selected}`;
+            });
+            console.log(indexOfObject);
+            todoArray.splice(indexOfObject, 1);
+            console.log(todoArray);
+            displayNewItem();
+            addTodoArrayToContent();
+        }
+    })
+
+    // cross item
+    document.addEventListener('click', e => {
+        if (e.target.classList.contains('checkbox')) {
+            if (e.target.checked) {
+                e.target.parentElement.classList.add('item-checked');
+            } else {
+                e.target.parentElement.classList.remove('item-checked');
+            }
+        }
+    })
 }
