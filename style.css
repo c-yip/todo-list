@@ -225,7 +225,7 @@ input[type="text"], input[type="date"], textarea {
     cursor: pointer;
 }
 
-.title-checked {
+.item-checked {
     color: #8d8d8d;
     text-decoration: line-through;
 }
