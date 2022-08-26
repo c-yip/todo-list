@@ -1,4 +1,5 @@
 export const todoArray = [];
+let id = null;
 
 export class TodoItem {
     constructor(title, priority, description, date) {
@@ -6,6 +7,7 @@ export class TodoItem {
         this.priority = priority;
         this.description = description;
         this.date = date;
+        this.idNum = ++id;
     }
 }
 
