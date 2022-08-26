@@ -4,30 +4,34 @@ export function addTodoArrayToContent() {
     todoArray.forEach(item => {
         const taskContainer = document.querySelector('.task-container');
         
+        const itemContainer = document.createElement('div');
+        itemContainer.classList.add('itemContainer');
+        taskContainer.appendChild(itemContainer);
+
         const itemTitle = document.createElement('div');
         itemTitle.classList.add('task-item-title');
         itemTitle.textContent = item.title;
-        taskContainer.appendChild(itemTitle);
+        itemContainer.appendChild(itemTitle);
 
         const description = document.createElement('div');
         description.classList.add('task-item-description');
         description.textContent = item.description;
-        taskContainer.appendChild(description);
+        itemContainer.appendChild(description);
 
         const dateInput = document.createElement('input');
         dateInput.classList.add('task-item-date');
         dateInput.value = item.date;
         dateInput.setAttribute('type', 'date');
-        taskContainer.appendChild(dateInput);
+        itemContainer.appendChild(dateInput);
 
-        taskContainer.appendChild(createPriorityLabel('high', 'High'));
-        taskContainer.appendChild(createPriorityInput('high'));
+        itemContainer.appendChild(createPriorityLabel('high', 'High'));
+        itemContainer.appendChild(createPriorityInput('high'));
 
-        taskContainer.appendChild(createPriorityLabel('medium', 'Medium'));
-        taskContainer.appendChild(createPriorityInput('medium'));
+        itemContainer.appendChild(createPriorityLabel('medium', 'Medium'));
+        itemContainer.appendChild(createPriorityInput('medium'));
 
-        taskContainer.appendChild(createPriorityLabel('low', 'Low'));
-        taskContainer.appendChild(createPriorityInput('low'));
+        itemContainer.appendChild(createPriorityLabel('low', 'Low'));
+        itemContainer.appendChild(createPriorityInput('low'));
 
         let priority = document.querySelectorAll('input[name="priority-dom"]');
         priority.forEach(p => {
