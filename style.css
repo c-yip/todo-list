@@ -205,13 +205,19 @@ input[type="text"], input[type="date"], textarea {
     margin-inline: auto;
 }
 
-.task-container {
+.itemContainer {
     display: flex;
     align-items: center;
     gap: 10px;
     background-color: white;
     border-radius: 8px;
     padding: 10px;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 @media only screen and (max-width: 600px) {
