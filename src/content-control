@@ -1,5 +1,6 @@
 import { todoArray } from "./create-todo-item";
 
+// creates dom
 export function addTodoArrayToContent() {
     todoArray.forEach(item => {
         const taskContainer = document.querySelector('.task-container');
@@ -42,6 +43,12 @@ export function addTodoArrayToContent() {
             }
             p.classList.add('checked');
         })
+
+        const trash = document.createElement('img');
+        trash.setAttribute('src', 'images/trash.png');
+        trash.setAttribute('alt', 'trash icon');
+        trash.classList.add('trash');
+        itemContainer.appendChild(trash);
     })
 }
 
@@ -67,4 +74,22 @@ export function displayNewItem() {
     itemContainer.forEach(itemContainer => {
       itemContainer.remove();
     })
+}
+
+// removes item from content
+export function removeItem() {
+    document.addEventListener('click', e => {
+    if (e.target.classList.contains('trash')) {
+        let selected = e.target.dataset.id;
+        console.log(selected);
+        const indexOfObject = todoArray.findIndex(object => {
+        return object.idNum == `${selected}`;
+        });
+        console.log(indexOfObject);
+        todoArray.splice(indexOfObject, 1);
+        console.log(todoArray);
+        displayNewItem();
+        addTodoArrayToContent();
+    }
+  })
 }

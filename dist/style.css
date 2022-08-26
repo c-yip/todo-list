@@ -220,6 +220,16 @@ input[type="text"], input[type="date"], textarea {
     gap: 10px;
 }
 
+.trash {
+    width: 3%;
+    cursor: pointer;
+}
+
+.title-checked {
+    color: #8d8d8d;
+    text-decoration: line-through;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         min-height: 100vh;
