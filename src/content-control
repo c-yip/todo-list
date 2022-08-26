@@ -25,15 +25,15 @@ export function addTodoArrayToContent() {
         itemContainer.appendChild(dateInput);
 
         itemContainer.appendChild(createPriorityLabel('high', 'High'));
-        itemContainer.appendChild(createPriorityInput('high'));
+        itemContainer.appendChild(createPriorityInput('high', item.idNum));
 
         itemContainer.appendChild(createPriorityLabel('medium', 'Medium'));
-        itemContainer.appendChild(createPriorityInput('medium'));
+        itemContainer.appendChild(createPriorityInput('medium', item.idNum));
 
         itemContainer.appendChild(createPriorityLabel('low', 'Low'));
-        itemContainer.appendChild(createPriorityInput('low'));
+        itemContainer.appendChild(createPriorityInput('low', item.idNum));
 
-        let priority = document.querySelectorAll('input[name="priority-dom"]');
+        let priority = document.querySelectorAll('.radio-dom');
         priority.forEach(p => {
             if (p.classList.contains('checked')) {
                 return;
@@ -52,12 +52,13 @@ function createPriorityLabel(priority, text) {
     return label;
 }
 
-function createPriorityInput(priority) {
+function createPriorityInput(priority, id) {
     const input = document.createElement('input');
     input.setAttribute('id', priority);
     input.setAttribute('type', 'radio');
-    input.setAttribute('name', 'priority-dom');
+    input.setAttribute('name', id);
     input.setAttribute('value', priority);
+    input.classList.add('radio-dom');
     return input;
 }
 
