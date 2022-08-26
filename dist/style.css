@@ -18,9 +18,13 @@ body {
     grid-template-rows: 8% auto 8%;
 }
 
-.header {
+header {
     background-color: #fbbf24;
     grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
 .side-bar {
@@ -49,12 +53,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 17px 50px;
 }
 
 .plus {
@@ -180,9 +178,9 @@ input[type="text"], input[type="date"], textarea {
 }
 
 .content-heading {
-    --b: 6px;   /* control the border thickness */
-    --w: 80px;  /* control the width of the line*/
-    --g: 15px;  /* control the gap */
+    --b: 6px;   
+    --w: 80px;  
+    --g: 15px;  
     --c: #fbbf24;
    
     width: fit-content;
