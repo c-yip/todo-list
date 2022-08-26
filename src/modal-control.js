@@ -8,6 +8,16 @@ export function modalControl() {
     const closeBtn = document.getElementsByClassName('close')[0];
     const submitBtn = document.querySelector('.submit');
 
+    function clearModal() {
+        const taskTitle = document.querySelector('#task-title');
+        taskTitle.value = '';
+        const taskDescription = document.querySelector('#task-description');
+        taskDescription.value = '';
+        const date = document.querySelector('#due-date');
+        date.value = '';
+        modal.style.display = 'none';
+    }
+
     taskBtn.forEach(btn => {
         btn.onclick = function() {
             modal.style.display = 'block';
@@ -28,5 +38,6 @@ export function modalControl() {
         displayNewItem();
         createTodoItem();
         addTodoArrayToContent();
-    } 
+        clearModal();
+    }
 }
