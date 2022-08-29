@@ -1,4 +1,6 @@
 import { todoArray } from "./create-todo-item";
+import { addProject } from "./project-control";
+const contentHeading = document.querySelector('.content-heading');
 
 // creates dom
 export function addTodoArrayToContent() {
@@ -110,4 +112,12 @@ export function itemControl() {
             }
         }
     })
+}
+
+function addProjectToContent() {
+    if (contentHeading.contains('data-project-name')) {
+        todoArray.forEach(item => { 
+            
+        })
+    } else return;
 }

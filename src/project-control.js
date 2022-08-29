@@ -23,7 +23,7 @@ function changeToProject() {
     projectItems.forEach(project => {
         project.onclick = function(e) {
             contentHeading.textContent = e.target.textContent;
-            contentHeading.setAttribute('data', contentHeading.textContent);
+            contentHeading.setAttribute('data-project-name', contentHeading.textContent);
         }
     })
 }
