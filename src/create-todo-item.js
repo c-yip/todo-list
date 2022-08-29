@@ -8,6 +8,7 @@ export class TodoItem {
         this.description = description;
         this.date = date;
         this.idNum = ++id;
+        this.project = null;
     }
 }
 

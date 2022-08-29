@@ -243,6 +243,10 @@ input[type="text"], input[type="date"], textarea {
     padding: 20px;
 }
 
+.project-item {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         min-height: 100vh;
