@@ -237,12 +237,10 @@ input[type="text"], input[type="date"], textarea {
 }
 
 #project-modal {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
 }
 
 @media only screen and (max-width: 600px) {

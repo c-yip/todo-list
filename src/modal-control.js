@@ -8,6 +8,8 @@ export function modalControl() {
     const closeBtn = document.querySelectorAll('.close');
     const submitBtn = document.querySelector('.submit');
     const overlay = document.getElementById('overlay');
+    const projectModal = document.getElementById('project-modal');
+    const projectBtn = document.getElementById('add-project-btn');
 
     function clearModal() {
         const taskTitle = document.querySelector('#task-title');
@@ -50,5 +52,10 @@ export function modalControl() {
         createTodoItem();
         addTodoArrayToContent();
         clearModal();
+    }
+
+    projectBtn.onclick = function() {
+        projectModal.classList.add('active');
+        overlay.classList.add('active');
     }
 }

@@ -23,8 +23,8 @@
         <div class="projects">
             <h3>Projects</h3>
             <div class="project-item-container"></div>
-            <div class="plus-container" id="project-btn">
-                <div class="plus"></div>
+            <div class="plus-container">
+                <div class="plus" id="add-project-btn"></div>
                 <h3>Add Project</h3>
             </div>
         </div>
@@ -79,9 +79,11 @@
     </div>
 
     <div id="project-modal" class="modal">
-        <p>New Project</p>
-        <label for="project">Name:</label>
+        <h3>New Project</h3>
+
+        <label for="project-name">Name:</label>
         <input type="text" name="project-name">
+        
         <div class="modal-buttons">
             <button class="close">Cancel</button>
             <input type="submit" class="submit" value="Add Task">
