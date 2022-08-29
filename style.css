@@ -104,7 +104,7 @@ header {
     border-radius: 10px;
     z-index: 10;
     background-color: white;
-    width: 500px;
+    width: 600px;
     max-width: 80%;
     transition: 200ms ease-in-out;
 }
@@ -130,36 +130,29 @@ header {
     opacity: 1;
 }
 
-.task-content {
-    display: grid;
-    grid-template-areas: 
-    "task-title task-title priority"
-    "description due-date modal-buttons"
-    ;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 24px;
+#task-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
 }
 
 .task-title {
-    grid-area: task-title;
     display: flex;
     flex-direction: column;
 }
 
 .description {
-    grid-area: description;
     display: flex;
     flex-direction: column;
 }
 
 .due-date {
-    grid-area: due-date;
     display: flex;
     flex-direction: column;
 }
 
 .priority {
-    grid-area: priority;
     gap: 10px;
 }
 
