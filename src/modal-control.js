@@ -1,6 +1,7 @@
 import {createTodoItem} from "./create-todo-item";
 import { addTodoArrayToContent } from "./content-control";
 import { displayNewItem } from "./content-control";
+import { addProject } from "./project-control";
 
 export function modalControl() {
     const modal = document.getElementById('task-modal');
@@ -10,6 +11,7 @@ export function modalControl() {
     const overlay = document.getElementById('overlay');
     const projectModal = document.getElementById('project-modal');
     const projectBtn = document.getElementById('add-project-btn');
+    const submitProject = document.getElementById('submit-project-btn');
 
     function clearModal() {
         const taskTitle = document.querySelector('#task-title');
@@ -58,4 +60,8 @@ export function modalControl() {
         projectModal.classList.add('active');
         overlay.classList.add('active');
     }
+
+    submitProject.addEventListener('click', function() {
+        addProject();
+    })
 }
