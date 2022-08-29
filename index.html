@@ -23,7 +23,7 @@
         <div class="projects">
             <h3>Projects</h3>
             <div class="project-item-container"></div>
-            <div class="plus-container">
+            <div class="plus-container" id="project-btn">
                 <div class="plus"></div>
                 <h3>Add Project</h3>
             </div>
@@ -47,7 +47,7 @@
     </footer>
 
     <div action="" id="task-modal" class="modal">
-        <div class="form-content">
+        <div class="task-content">
             <div class="task-title">
                 <label for="task-title">Task Title</label>
                 <input type="text" id="task-title" name="task-title" placeholder="Add a task" size="50">
@@ -72,14 +72,25 @@
                 <label for="low">Low</label>
                 <input type="radio" id="low" name="priority" value="low">
             </div>
-            
 
-            <div class="form-buttons">
+            <div class="modal-buttons">
                 <button class="close">Cancel</button>
                 <input type="submit" class="submit" value="Add Task">
             </div>
         </div>
     </div>
+
+    <div id="project-modal" class="modal">
+        <p>New Project</p>
+        <label for="project">Name:</label>
+        <input type="text" name="project-name">
+        <div class="modal-buttons">
+            <button class="close">Cancel</button>
+            <input type="submit" class="submit" value="Add Task">
+        </div>
+    </div>
+
+    <div id="overlay"></div>
 
     <script src="main.js"></script>
 </body>
