@@ -15,7 +15,7 @@ body {
         "footer footer footer"
     ;
     grid-template-columns: auto 80%;
-    grid-template-rows: 8% auto 8%;
+    grid-template-rows: 4% auto 4%;
 }
 
 header {
@@ -96,30 +96,45 @@ header {
 }
 
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%;
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    transition: 200ms ease-in-out;
 }
 
-.form-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 8px;
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.task-content {
     display: grid;
     grid-template-areas: 
     "task-title task-title priority"
-    "description due-date form-buttons"
+    "description due-date modal-buttons"
     ;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 24px;
@@ -148,8 +163,8 @@ header {
     gap: 10px;
 }
 
-.form-buttons {
-    grid-area: form-buttons;
+.modal-buttons {
+    grid-area: modal-buttons;
     justify-self: end;
     align-self: end;
 }
@@ -226,6 +241,15 @@ input[type="text"], input[type="date"], textarea {
 .item-checked {
     color: #8d8d8d;
     text-decoration: line-through;
+}
+
+#project-modal {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 8px;
 }
 
 @media only screen and (max-width: 600px) {

@@ -5,8 +5,9 @@ import { displayNewItem } from "./content-control";
 export function modalControl() {
     const modal = document.getElementById('task-modal');
     const taskBtn = document.querySelectorAll('#add-task-btn');
-    const closeBtn = document.getElementsByClassName('close')[0];
+    const closeBtn = document.querySelectorAll('.close');
     const submitBtn = document.querySelector('.submit');
+    const overlay = document.getElementById('overlay');
 
     function clearModal() {
         const taskTitle = document.querySelector('#task-title');
@@ -15,23 +16,33 @@ export function modalControl() {
         taskDescription.value = '';
         const date = document.querySelector('#due-date');
         date.value = '';
-        modal.style.display = 'none';
+        closeModal(modal);
     }
 
     taskBtn.forEach(btn => {
         btn.onclick = function() {
-            modal.style.display = 'block';
+            modal.classList.add('active');
+            overlay.classList.add('active');
         }
     })
 
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
+    closeBtn.forEach(btn => {
+        btn.onclick = function() {
+            const modal = btn.closest('.modal');
+            closeModal(modal);
         }
+    })
+
+    overlay.addEventListener('click', () => {
+        const modals = document.querySelectorAll('.modal.active');
+        modals.forEach(modal => {
+            closeModal(modal);
+        })
+    })
+
+    function closeModal(modal) {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
     }
 
     submitBtn.onclick = function() {
