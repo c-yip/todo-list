@@ -2,7 +2,7 @@ const submitProject = document.getElementById('submit-project-btn');
 const projectItemContainer = document.querySelector('.project-item-container');
 const projectInput = document.getElementById('project-input');
 const contentHeading = document.querySelector('.content-heading');
-export const projectArray = [];
+const projectArray = [];
 
 export function addProject() {
     addProjectNameToSideBar();
@@ -27,10 +27,4 @@ function changeToProject() {
             contentHeading.setAttribute('data-project-name', contentHeading.textContent);
         }
     })
-}
-
-function addToProjectLibrary(newItem) {
-    if (!newItem.project == 'home') {
-        projectArray.push(newItem);
-    }
 }
