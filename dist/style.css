@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+    --header-color: #bfc0ff
+}
 
 * {
     box-sizing: border-box;
@@ -19,7 +22,7 @@ body {
 }
 
 header {
-    background-color: #fbbf24;
+    background-color: var(--header-color);
     grid-area: header;
     display: flex;
     justify-content: space-between;
@@ -28,7 +31,7 @@ header {
 }
 
 .side-bar {
-    background-color: #fde047;
+    background-color: #f7f7f7;
     grid-area: side;
     display: flex;
     flex-direction: column;
@@ -37,7 +40,7 @@ header {
 }
 
 .main-content {
-    background-color: #fef08a;
+    background-color: white;
     grid-area: main;
     padding: 43px;
     display: flex;
@@ -189,7 +192,7 @@ input[type="text"], input[type="date"], textarea {
     --b: 6px;   
     --w: 80px;  
     --g: 15px;  
-    --c: #fbbf24;
+    --c: var(--header-color);
    
     width: fit-content;
     padding: 0 1em;
@@ -215,7 +218,7 @@ input[type="text"], input[type="date"], textarea {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: white;
+    background-color: #f7f7f7;
     border-radius: 8px;
     padding: 10px;
     flex-wrap: wrap;
@@ -283,18 +286,18 @@ input[type="text"], input[type="date"], textarea {
     }
 
     .header {
-        background-color: #fbbf24;
+        background-color: var(--header-color);
         grid-area: header;
     }
     
     .side-bar {
-        background-color: #fde047;
+        background-color: #f7f7f7;
         grid-area: side;
         display: none;
     }    
     
     .main-content {
-        background-color: #fef08a;
+        background-color: white;
         grid-area: main;
     }
     
