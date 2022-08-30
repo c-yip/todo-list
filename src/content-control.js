@@ -16,56 +16,91 @@ export function addTodoArrayToContent() {
 function createDom(item) {
     const taskContainer = document.querySelector('.task-container');
         
-        const itemContainer = document.createElement('div');
-        itemContainer.classList.add('itemContainer');
-        itemContainer.setAttribute('id', `container-${item.idNum}`);
-        taskContainer.appendChild(itemContainer);
+    const itemContainer = document.createElement('div');
+    itemContainer.classList.add('itemContainer');
+    itemContainer.setAttribute('id', `container-${item.idNum}`);
+    taskContainer.appendChild(itemContainer);
 
-        const checkbox = document.createElement('input');
-        checkbox.setAttribute('type', 'checkbox');
-        checkbox.classList.add('checkbox');
-        itemContainer.appendChild(checkbox);
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute('type', 'checkbox');
+    checkbox.classList.add('checkbox');
+    itemContainer.appendChild(checkbox);
 
-        const itemTitle = document.createElement('div');
-        itemTitle.classList.add('task-item-title');
-        itemTitle.textContent = item.title;
-        itemContainer.appendChild(itemTitle);
+    const itemTitle = document.createElement('div');
+    itemTitle.classList.add('task-item-title');
+    itemTitle.textContent = item.title;
+    itemContainer.appendChild(itemTitle);
 
-        const description = document.createElement('div');
-        description.classList.add('task-item-description');
-        description.textContent = item.description;
-        itemContainer.appendChild(description);
+    const description = document.createElement('div');
+    description.classList.add('task-item-description');
+    description.textContent = item.description;
+    itemContainer.appendChild(description);
 
-        const dateInput = document.createElement('input');
-        dateInput.classList.add('task-item-date');
-        dateInput.value = item.date;
-        dateInput.setAttribute('type', 'date');
-        itemContainer.appendChild(dateInput);
+    const dateInput = document.createElement('input');
+    dateInput.classList.add('task-item-date');
+    dateInput.value = item.date;
+    dateInput.setAttribute('type', 'date');
+    itemContainer.appendChild(dateInput);
 
-        itemContainer.appendChild(createPriorityLabel('high', 'High'));
-        itemContainer.appendChild(createPriorityInput('high', item.idNum));
+    itemContainer.appendChild(createPriorityLabel('high', 'High'));
+    itemContainer.appendChild(createPriorityInput('high', item.idNum));
 
-        itemContainer.appendChild(createPriorityLabel('medium', 'Medium'));
-        itemContainer.appendChild(createPriorityInput('medium', item.idNum));
+    itemContainer.appendChild(createPriorityLabel('medium', 'Medium'));
+    itemContainer.appendChild(createPriorityInput('medium', item.idNum));
 
-        itemContainer.appendChild(createPriorityLabel('low', 'Low'));
-        itemContainer.appendChild(createPriorityInput('low', item.idNum));
+    itemContainer.appendChild(createPriorityLabel('low', 'Low'));
+    itemContainer.appendChild(createPriorityInput('low', item.idNum));
 
-        let priority = document.querySelectorAll('.radio-dom');
-        priority.forEach(p => {
-            if (p.classList.contains('checked')) {
-                return;
-            } else if (p.value == item.priority) {
-                p.checked = true;
-            }
-            p.classList.add('checked');
-        })
+    let priority = document.querySelectorAll('.radio-dom');
+    priority.forEach(p => {
+        if (p.classList.contains('checked')) {
+            return;
+        } else if (p.value == item.priority) {
+            p.checked = true;
+        }
+        p.classList.add('checked');
 
-        const trash = document.createElement('img');
-        trash.setAttribute('src', 'images/trash.png');
-        trash.setAttribute('alt', 'trash icon');
-        trash.classList.add('trash');
-        itemContainer.appendChild(trash);
+        if (item.priority == 'high') {
+            p.parentElement.classList.add('high');
+        }
+
+        if (item.priority == 'medium') {
+            p.parentElement.classList.add('medium');
+        }
+
+        if (item.priority == 'low') {
+            p.parentElement.classList.add('low');
+        }
+    })
+
+    const trash = document.createElement('img');
+    trash.setAttribute('src', 'images/trash.png');
+    trash.setAttribute('alt', 'trash icon');
+    trash.classList.add('trash');
+    itemContainer.appendChild(trash);
+
+    document.addEventListener('click', e => {
+        if (e.target == document.querySelector("#high")) {
+            let parent = e.target.parentElement;
+            parent.classList.remove('medium');
+            parent.classList.remove('low');
+            parent.classList.add('high');
+        }
+
+        if (e.target == document.querySelector("#medium")) {
+            let parent = e.target.parentElement;
+            parent.classList.remove('high');
+            parent.classList.remove('low');
+            parent.classList.add('medium');
+        }
+
+        if (e.target == document.querySelector("#low")) {
+            let parent = e.target.parentElement;
+            parent.classList.remove('medium');
+            parent.classList.remove('high');
+            parent.classList.add('low');
+        }
+    })
 }
 
 function createPriorityLabel(priority, text) {
