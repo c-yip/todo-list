@@ -1,5 +1,5 @@
 export const todoArray = [];
-export const projectArray = [];
+import {projectArray} from './project-control';
 let id = null;
 
 export class TodoItem {
@@ -23,7 +23,5 @@ export function createTodoItem() {
     let newItem = new TodoItem(title, priority, description, date, project);
     todoArray.push(newItem); 
     console.log(todoArray);
-    if (!newItem.project == 'home') {
-        projectArray.push(newItem);
-    }
+    
 }

@@ -131,3 +131,10 @@ function addProjectToContent() {
     });
     return projectArray;
 }
+
+export function homeBtnEventListener() {
+    todoArray.forEach(item => {
+        createDom(item);
+    })
+    console.log('You are home.');
+} 

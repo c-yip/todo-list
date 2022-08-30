@@ -243,7 +243,7 @@ input[type="text"], input[type="date"], textarea {
     padding: 20px;
 }
 
-.project-item {
+.project-item, #home-btn {
     cursor: pointer;
 }
 

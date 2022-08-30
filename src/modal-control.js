@@ -2,6 +2,7 @@ import {createTodoItem} from "./create-todo-item";
 import { addTodoArrayToContent } from "./content-control";
 import { displayNewItem } from "./content-control";
 import { addProject } from "./project-control";
+import { homeBtnEventListener } from "./content-control";
 
 export function modalControl() {
     const modal = document.getElementById('task-modal');
@@ -12,6 +13,7 @@ export function modalControl() {
     const projectModal = document.getElementById('project-modal');
     const projectBtn = document.getElementById('add-project-btn');
     const submitProject = document.getElementById('submit-project-btn');
+    const homeBtn = document.querySelector('#home-btn');
 
     function clearModal() {
         const taskTitle = document.querySelector('#task-title');
@@ -63,5 +65,10 @@ export function modalControl() {
 
     submitProject.addEventListener('click', function() {
         addProject();
+    })
+
+    homeBtn.addEventListener('click', function () {
+        displayNewItem();
+        homeBtnEventListener();
     })
 }
