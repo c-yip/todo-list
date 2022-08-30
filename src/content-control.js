@@ -1,18 +1,19 @@
 import { todoArray } from "./create-todo-item";
-
+import { projectArray } from "./create-todo-item";
 // creates dom
 export function addTodoArrayToContent() {
-    if (!document.querySelector("body > main > h2").hasAttribute('data-project-name')) {
+    if (document.querySelector('.content-heading').dataset.projectName == 'home') {
         todoArray.forEach(item => {
             createDom(item);
         })
+        console.log('home')
     } else {
         addProjectToContent().forEach(item => {
             createDom(item);
         });
+        console.log('project')
     }
 }
-    
 function createDom(item) {
     const taskContainer = document.querySelector('.task-container');
         
