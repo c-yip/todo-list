@@ -80,22 +80,25 @@ function createDom(item) {
     itemContainer.appendChild(trash);
 
     document.addEventListener('click', e => {
-        if (e.target == document.querySelector("#high")) {
+        if (e.target.getAttribute('id') == 'high') {
             let parent = e.target.parentElement;
+            item.priority = 'high';
             parent.classList.remove('medium');
             parent.classList.remove('low');
             parent.classList.add('high');
         }
 
-        if (e.target == document.querySelector("#medium")) {
+        if (e.target.getAttribute('id') == 'medium') {
             let parent = e.target.parentElement;
+            item.priority = 'medium';
             parent.classList.remove('high');
             parent.classList.remove('low');
             parent.classList.add('medium');
         }
 
-        if (e.target == document.querySelector("#low")) {
+        if (e.target.getAttribute('id') == 'low') {
             let parent = e.target.parentElement;
+            item.priority = 'low';
             parent.classList.remove('medium');
             parent.classList.remove('high');
             parent.classList.add('low');
