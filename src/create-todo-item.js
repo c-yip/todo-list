@@ -15,12 +15,10 @@ export class TodoItem {
 export function createTodoItem() {
     let title = document.querySelector('#task-title').value;
     let priority = document.querySelector('input[name="priority"]:checked').value;
-    console.log(priority);
     let description = document.querySelector('#task-description').value;
     let date = document.querySelector('#due-date').value;
     let heading = document.querySelector('.content-heading');
     let project = heading.dataset.projectName;
-    console.log(project);
     let newItem = new TodoItem(title, priority, description, date, project);
     todoArray.push(newItem); 
     console.log(todoArray);

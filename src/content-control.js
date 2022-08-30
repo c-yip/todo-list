@@ -1,11 +1,20 @@
 import { todoArray } from "./create-todo-item";
-import { addProject } from "./project-control";
-const contentHeading = document.querySelector('.content-heading');
 
 // creates dom
 export function addTodoArrayToContent() {
-    todoArray.forEach(item => {
-        const taskContainer = document.querySelector('.task-container');
+    if (!document.querySelector("body > main > h2").hasAttribute('data-project-name')) {
+        todoArray.forEach(item => {
+            createDom(item);
+        })
+    } else {
+        addProjectToContent().forEach(item => {
+            createDom(item);
+        });
+    }
+}
+    
+function createDom(item) {
+    const taskContainer = document.querySelector('.task-container');
         
         const itemContainer = document.createElement('div');
         itemContainer.classList.add('itemContainer');
@@ -57,7 +66,6 @@ export function addTodoArrayToContent() {
         trash.setAttribute('alt', 'trash icon');
         trash.classList.add('trash');
         itemContainer.appendChild(trash);
-    })
 }
 
 function createPriorityLabel(priority, text) {
@@ -90,7 +98,6 @@ export function itemControl() {
     document.addEventListener('click', e => {
         if (e.target.classList.contains('trash')) {
             let selected = e.target.dataset.id;
-            console.log(selected);
             const indexOfObject = todoArray.findIndex(object => {
             return object.idNum == `${selected}`;
             });
@@ -115,9 +122,11 @@ export function itemControl() {
 }
 
 function addProjectToContent() {
-    if (contentHeading.contains('data-project-name')) {
-        todoArray.forEach(item => { 
-            
-        })
-    } else return;
+    let heading = document.querySelector('.content-heading');
+    let projectNameFromHeading = heading.dataset.projectName;
+    console.log(projectNameFromHeading);
+    const projectArray = todoArray.filter(obj => {
+        return obj.project == projectNameFromHeading;
+    });
+    return projectArray;
 }
