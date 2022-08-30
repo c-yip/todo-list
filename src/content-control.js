@@ -1,5 +1,4 @@
 import { todoArray } from "./create-todo-item";
-import { projectArray } from "./create-todo-item";
 // creates dom
 export function addTodoArrayToContent() {
     if (document.querySelector('.content-heading').dataset.projectName == 'home') {
@@ -136,5 +135,6 @@ export function homeBtnEventListener() {
     todoArray.forEach(item => {
         createDom(item);
     })
+    document.querySelector('.content-heading').textContent = 'Home';
     console.log('You are home.');
 } 
