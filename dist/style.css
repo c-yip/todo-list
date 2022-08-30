@@ -218,6 +218,7 @@ input[type="text"], input[type="date"], textarea {
     background-color: white;
     border-radius: 8px;
     padding: 10px;
+    flex-wrap: wrap;
 }
 
 .task-container {
@@ -227,7 +228,7 @@ input[type="text"], input[type="date"], textarea {
 }
 
 .trash {
-    width: 3%;
+    width: 1em;
     cursor: pointer;
 }
 
@@ -245,6 +246,27 @@ input[type="text"], input[type="date"], textarea {
 
 .project-item, #home-btn {
     cursor: pointer;
+}
+
+.project-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bold;
+}
+
+/* priority classes */
+
+.high {
+    background-color: #ed7171;
+}
+
+.medium {
+    background-color: yellow;
+}
+
+.low {
+    background-color: lightgreen;
 }
 
 @media only screen and (max-width: 600px) {
