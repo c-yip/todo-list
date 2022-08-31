@@ -18,6 +18,9 @@ function createDom(item) {
         
     const itemContainer = document.createElement('div');
     itemContainer.classList.add('itemContainer');
+    if (item.checked == true) {
+        itemContainer.classList.add('item-checked');
+    }
     itemContainer.setAttribute('data-id', item.idNum);
     taskContainer.appendChild(itemContainer);
 
@@ -121,6 +124,7 @@ function createDom(item) {
             selectedObject.priority = 'low';
             console.log(selectedObject);
         }
+
     })
 
     document.addEventListener('change', e => {
@@ -181,9 +185,22 @@ export function itemControl() {
     document.addEventListener('click', e => {
         if (e.target.classList.contains('checkbox')) {
             if (e.target.checked) {
-                e.target.parentElement.classList.add('item-checked');
+                let parent = e.target.parentElement;
+                parent.classList.add('item-checked');
+                let dataId = parent.dataset.id;
+                let selectedObject = todoArray.find(obj => {
+                    return obj.idNum == dataId;
+                });
+                selectedObject.checked = true;
             } else {
-                e.target.parentElement.classList.remove('item-checked');
+                let parent = e.target.parentElement;
+                parent.classList.add('item-checked');
+                let dataId = parent.dataset.id;
+                let selectedObject = todoArray.find(obj => {
+                    return obj.idNum == dataId;
+                });
+                parent.classList.remove('item-checked');
+                selectedObject.checked = false;
             }
         }
     })

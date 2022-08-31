@@ -10,6 +10,7 @@ export class TodoItem {
         this.date = date;
         this.idNum = ++id;
         this.project = project;
+        this.checked = false;
     }
 }
 
