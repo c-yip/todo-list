@@ -280,11 +280,15 @@ input[type="text"], input[type="date"], textarea {
             "footer"
         ;
         grid-template-columns: 100%;
+        grid-template-rows: 6% auto 6%;
     }
 
-    .header {
+    header {
         background-color: var(--header-color);
         grid-area: header;
+        padding: 10px;
+        padding-left: 13px;
+        padding-right: 30px;
     }
     
     .side-bar {
