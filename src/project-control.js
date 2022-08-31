@@ -1,5 +1,5 @@
 const submitProject = document.getElementById('submit-project-btn');
-const projectItemContainer = document.querySelector('.project-item-container');
+export const projectItemContainer = document.querySelector('.project-item-container');
 const projectInput = document.getElementById('project-input');
 const contentHeading = document.querySelector('.content-heading');
 import { addTodoArrayToContent } from "./content-control";
@@ -20,7 +20,7 @@ function addProjectNameToSideBar() {
     }
 }
 
-function changeToProject() {
+export function changeToProject() {
     const projectItems = document.querySelectorAll('.project-item');
     projectItems.forEach(project => {
         project.onclick = function(e) {

@@ -1,6 +1,8 @@
 export let todoArray = [];
 import { createDom } from "./content-control";
-const projectArray = [];
+import {projectItemContainer} from "./project-control";
+import { changeToProject } from "./project-control";
+let projectArray = [];
 let id = null;
 let firstLoad = true;
 
@@ -32,12 +34,12 @@ export function createTodoItem() {
     }
     console.log(projectArray);
     firstLoad = false;
-    console.log(firstLoad);
 
     // local storage
     localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
     localStorage.setItem('idCount', JSON.stringify(id));
     localStorage.setItem('firstLoad', JSON.stringify(firstLoad));
+    localStorage.setItem('projectStorage', JSON.stringify(projectArray));
 }
 
 export function loadLocalStorage() {
@@ -51,10 +53,21 @@ export function loadLocalStorage() {
         todoArray = userLocalData;
         const idCount = JSON.parse(localStorage.getItem('idCount'));
         id = idCount;
+        const projectStorage = JSON.parse(localStorage.getItem('projectStorage'));
+        projectArray = projectStorage;
     
         todoArray.forEach(item => {
             createDom(item);
         })
+
+        projectArray.forEach(item => {
+            const projectItem = document.createElement('p');
+            projectItem.textContent = item.project;
+            projectItem.classList.add('project-item');
+            projectItemContainer.appendChild(projectItem);
+        })
+
+        changeToProject();
     } else {
         return;
     }
