@@ -99,6 +99,13 @@ function createDom(item) {
             parent.classList.remove('high');
             parent.classList.remove('low');
             parent.classList.add('medium');
+
+            let dataId = parent.dataset.id;
+            let selectedObject = todoArray.find(obj => {
+                return obj.idNum == dataId;
+            });
+            selectedObject.priority = 'medium';
+            console.log(selectedObject);
         }
 
         if (e.target.getAttribute('id') == 'low') {
@@ -106,6 +113,13 @@ function createDom(item) {
             parent.classList.remove('medium');
             parent.classList.remove('high');
             parent.classList.add('low');
+
+            let dataId = parent.dataset.id;
+            let selectedObject = todoArray.find(obj => {
+                return obj.idNum == dataId;
+            });
+            selectedObject.priority = 'low';
+            console.log(selectedObject);
         }
     })
 }
