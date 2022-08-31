@@ -18,7 +18,7 @@ function createDom(item) {
         
     const itemContainer = document.createElement('div');
     itemContainer.classList.add('itemContainer');
-    itemContainer.setAttribute('id', `container-${item.idNum}`);
+    itemContainer.setAttribute('data-id', item.idNum);
     taskContainer.appendChild(itemContainer);
 
     const checkbox = document.createElement('input');
@@ -82,15 +82,20 @@ function createDom(item) {
     document.addEventListener('click', e => {
         if (e.target.getAttribute('id') == 'high') {
             let parent = e.target.parentElement;
-            item.priority = 'high';
             parent.classList.remove('medium');
             parent.classList.remove('low');
             parent.classList.add('high');
+
+            let dataId = parent.dataset.id;
+            let selectedObject = todoArray.find(obj => {
+                return obj.idNum == dataId;
+            });
+            selectedObject.priority = 'high';
+            console.log(selectedObject);
         }
 
         if (e.target.getAttribute('id') == 'medium') {
             let parent = e.target.parentElement;
-            item.priority = 'medium';
             parent.classList.remove('high');
             parent.classList.remove('low');
             parent.classList.add('medium');
@@ -98,7 +103,6 @@ function createDom(item) {
 
         if (e.target.getAttribute('id') == 'low') {
             let parent = e.target.parentElement;
-            item.priority = 'low';
             parent.classList.remove('medium');
             parent.classList.remove('high');
             parent.classList.add('low');
