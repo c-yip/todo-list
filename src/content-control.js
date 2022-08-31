@@ -122,6 +122,18 @@ function createDom(item) {
             console.log(selectedObject);
         }
     })
+
+    document.addEventListener('change', e => {
+        let selectedDate = e.target;
+        if (selectedDate.classList.contains('task-item-date')) {
+            let parent = selectedDate.parentElement;
+            let dataId = parent.dataset.id;
+            let selectedObject = todoArray.find(obj => {
+                return obj.idNum == dataId;
+            });
+            selectedObject.date = selectedDate.value;
+        }
+    })
 }
 
 function createPriorityLabel(priority, text) {
