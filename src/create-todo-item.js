@@ -45,9 +45,13 @@ export function loadLocalStorage() {
         const idCount = JSON.parse(localStorage.getItem('idCount'));
         id = idCount;
 
-        todoArray.forEach(item => {
-            createDom(item);
-        })
+        if (todoArray.length === 0) {
+            return;
+        } else {
+            todoArray.forEach(item => {
+                createDom(item);
+            })
+        }
     };
 }
 
