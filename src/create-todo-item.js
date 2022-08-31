@@ -33,6 +33,7 @@ export function createTodoItem() {
 
     // local storage
     localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
+    localStorage.setItem('idCount', JSON.stringify(id));
 }
 
 export function loadLocalStorage() {
@@ -41,6 +42,8 @@ export function loadLocalStorage() {
         console.log('testing on load');
         const userLocalData = JSON.parse(localStorage.getItem('todoArrayStorage'));
         todoArray = userLocalData;
+        const idCount = JSON.parse(localStorage.getItem('idCount'));
+        id = idCount;
 
         todoArray.forEach(item => {
             createDom(item);

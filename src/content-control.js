@@ -94,7 +94,6 @@ export function createDom(item) {
                 return obj.idNum == dataId;
             });
             selectedObject.priority = 'high';
-            console.log(selectedObject);
         }
 
         if (e.target.getAttribute('id') == 'medium') {
@@ -108,7 +107,6 @@ export function createDom(item) {
                 return obj.idNum == dataId;
             });
             selectedObject.priority = 'medium';
-            console.log(selectedObject);
         }
 
         if (e.target.getAttribute('id') == 'low') {
@@ -122,9 +120,8 @@ export function createDom(item) {
                 return obj.idNum == dataId;
             });
             selectedObject.priority = 'low';
-            console.log(selectedObject);
         }
-
+        localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
     })
 
     document.addEventListener('change', e => {
@@ -137,6 +134,7 @@ export function createDom(item) {
             });
             selectedObject.date = selectedDate.value;
         }
+        localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
     })
 }
 
