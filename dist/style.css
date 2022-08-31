@@ -261,16 +261,14 @@ input[type="text"], input[type="date"], textarea {
 /* priority classes */
 
 .high {
-    background-color: #ed7171;
+    border: 2px solid red;
 }
 
 .medium {
-    background-color: yellow;
-}
+    border: 2px solid orange;}
 
 .low {
-    background-color: lightgreen;
-}
+    border: 2px solid green;}
 
 @media only screen and (max-width: 600px) {
     body {
