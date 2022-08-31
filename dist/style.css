@@ -280,7 +280,6 @@ input[type="text"], input[type="date"], textarea {
             "footer"
         ;
         grid-template-columns: 100%;
-        grid-template-rows: repeat(auto, 3);
     }
 
     .header {

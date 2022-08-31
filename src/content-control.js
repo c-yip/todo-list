@@ -13,7 +13,7 @@ export function addTodoArrayToContent() {
         console.log('project')
     }
 }
-function createDom(item) {
+export function createDom(item) {
     const taskContainer = document.querySelector('.task-container');
         
     const itemContainer = document.createElement('div');
@@ -175,6 +175,7 @@ export function itemControl() {
             });
             console.log(indexOfObject);
             todoArray.splice(indexOfObject, 1);
+            localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
             console.log(todoArray);
             displayNewItem();
             addTodoArrayToContent();

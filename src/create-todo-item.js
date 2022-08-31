@@ -1,4 +1,5 @@
-export const todoArray = [];
+export let todoArray = [];
+import { createDom } from "./content-control";
 const projectArray = [];
 let id = null;
 
@@ -29,4 +30,22 @@ export function createTodoItem() {
         projectArray.push(newItem);
     }
     console.log(projectArray);
+
+    // local storage
+    localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
 }
+
+export function loadLocalStorage() {
+    const body = document.querySelector('body');
+    body.onload = function() {
+        console.log('testing on load');
+        const userLocalData = JSON.parse(localStorage.getItem('todoArrayStorage'));
+        todoArray = userLocalData;
+
+        todoArray.forEach(item => {
+            createDom(item);
+        })
+    };
+}
+
+
