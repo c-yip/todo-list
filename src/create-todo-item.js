@@ -2,7 +2,7 @@ export let todoArray = [];
 import { createDom } from "./content-control";
 import {projectItemContainer} from "./project-control";
 import { changeToProject } from "./project-control";
-let projectArray = [];
+export let projectArray = [];
 let id = null;
 let firstLoad = true;
 
@@ -45,7 +45,6 @@ export function createTodoItem() {
 export function loadLocalStorage() {
     let firstLoadInquiry = JSON.parse(localStorage.getItem('firstLoad'));
     firstLoad = firstLoadInquiry;
-    console.log(firstLoad);
 
     if (firstLoad == false) {
         console.log('loading array');

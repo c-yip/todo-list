@@ -1,16 +1,15 @@
 import { todoArray } from "./create-todo-item";
+import { projectArray } from "./create-todo-item";
 // creates dom
 export function addTodoArrayToContent() {
     if (document.querySelector('.content-heading').dataset.projectName == 'home') {
         todoArray.forEach(item => {
             createDom(item);
         })
-        console.log('home')
     } else {
         addProjectToContent().forEach(item => {
             createDom(item);
         });
-        console.log('project')
     }
 }
 export function createDom(item) {
@@ -167,14 +166,24 @@ export function itemControl() {
     // remove item
     document.addEventListener('click', e => {
         if (e.target.classList.contains('trash')) {
-            let selected = e.target.dataset.id;
+            let parent = e.target.parentElement;
+            let selected = parent.dataset.id;
             const indexOfObject = todoArray.findIndex(object => {
-            return object.idNum == `${selected}`;
+                return object.idNum == selected;
             });
-            console.log(indexOfObject);
             todoArray.splice(indexOfObject, 1);
-            localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
             console.log(todoArray);
+            
+            localStorage.setItem('todoArrayStorage', JSON.stringify(todoArray));
+
+            //remove object from project array
+            const indexOfProject = projectArray.findIndex(object => {
+                return object.idNum == selected;
+            })
+            projectArray.splice(indexOfProject, 1);
+            localStorage.setItem('projectStorage', JSON.stringify(projectArray));
+            console.log(projectArray);
+
             displayNewItem();
             addTodoArrayToContent();
         }
@@ -208,11 +217,10 @@ export function itemControl() {
 function addProjectToContent() {
     let heading = document.querySelector('.content-heading');
     let projectNameFromHeading = heading.dataset.projectName;
-    console.log(projectNameFromHeading);
-    const projectArray = todoArray.filter(obj => {
+    const projectFilter = todoArray.filter(obj => {
         return obj.project == projectNameFromHeading;
     });
-    return projectArray;
+    return projectFilter;
 }
 
 export function homeBtnEventListener() {
@@ -220,5 +228,5 @@ export function homeBtnEventListener() {
         createDom(item);
     })
     document.querySelector('.content-heading').textContent = 'Home';
-    console.log('You are home.');
+    document.querySelector('.content-heading').setAttribute('data-project-name', 'home');
 } 
